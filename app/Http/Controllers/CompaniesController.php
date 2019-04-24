@@ -35,9 +35,10 @@ class CompaniesController extends Controller
     }
 
     /**
-     * Show the form for creating a company.
+     * Save the company to the database.
      *
-     * @return \Illuminate\View\View
+     * @param  \App\Http\Requests\StoreCompanyRequest  $request
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(StoreCompanyRequest $request)
     {
