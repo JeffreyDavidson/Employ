@@ -14,3 +14,8 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+// Allow all authentication routes except for register routing.
+Auth::routes(['register' => false]);
+
+Route::view('/dashboard', 'dashboard')->name('dashboard');
