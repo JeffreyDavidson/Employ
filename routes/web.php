@@ -22,4 +22,6 @@ Route::middleware(['middleware' => 'auth'])->group(function () {
     Route::view('/dashboard', 'dashboard')->name('dashboard');
 
     Route::get('/companies', 'CompaniesController@index')->name('companies.index');
+    Route::get('/companies/create', 'CompaniesController@create')->name('companies.create');
+    Route::post('/companies', 'CompaniesController@store')->name('companies.store');
 });

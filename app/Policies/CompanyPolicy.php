@@ -21,4 +21,16 @@ class CompanyPolicy
     {
         return $user->isAdmin();
     }
+
+    /**
+     * Checks to see if the user has the
+     * ability to create a company.
+     *
+     * @param  \App\User  $user
+     * @return bool
+     */
+    public function create(User $user)
+    {
+        return $user->isAdmin();
+    }
 }
