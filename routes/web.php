@@ -22,4 +22,5 @@ Route::middleware(['middleware' => 'auth'])->group(function () {
     Route::view('/dashboard', 'dashboard')->name('dashboard');
 
     Route::resource('companies', 'CompaniesController');
+    Route::resource('companies.employees', 'EmployeesController');
 });

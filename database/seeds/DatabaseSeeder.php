@@ -9,6 +9,7 @@ class DatabaseSeeder extends Seeder
         'roles',
         'users',
         'companies',
+        'employees',
     ];
 
     /**
