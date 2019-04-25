@@ -24,4 +24,6 @@ Route::middleware(['middleware' => 'auth'])->group(function () {
     Route::get('/companies', 'CompaniesController@index')->name('companies.index');
     Route::get('/companies/create', 'CompaniesController@create')->name('companies.create');
     Route::post('/companies', 'CompaniesController@store')->name('companies.store');
+    Route::get('/companies/{company}/edit', 'CompaniesController@edit')->name('companies.edit');
+    Route::patch('/companies/{company}', 'CompaniesController@update')->name('companies.update');
 });

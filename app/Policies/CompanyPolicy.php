@@ -33,4 +33,16 @@ class CompanyPolicy
     {
         return $user->isAdmin();
     }
+
+    /**
+     * Checks to see if the user has the
+     * ability to update a company.
+     *
+     * @param  \App\User  $user
+     * @return bool
+     */
+    public function update(User $user, Company $company)
+    {
+        return $user->isAdmin() || $company->managers->contains($user);
+    }
 }

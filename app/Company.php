@@ -18,8 +18,8 @@ class Company extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function manager()
+    public function managers()
     {
-        return $this->belongsTo(User::class);
+        return $this->hasMany(User::class);
     }
 }

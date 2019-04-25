@@ -44,11 +44,11 @@ class CompanyTest extends TestCase
     }
 
     /** @test */
-    public function a_company_has_a_manager()
+    public function a_company_can_have_many_managers()
     {
-        $user = factory(User::class)->states('manager')->create();
-        $company = factory(Company::class)->create(['manager_id' => $user]);
+        $company = factory(Company::class)->create();
+        $user = factory(User::class)->states('manager')->create(['company_id' => $company]);
 
-        $this->assertTrue($company->manager->is($user));
+        $this->assertTrue($company->managers->contains($user));
     }
 }

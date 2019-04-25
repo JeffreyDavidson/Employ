@@ -19,10 +19,7 @@ class CreateCompaniesTable extends Migration
             $table->string('email')->nullable();
             $table->string('logo')->nullable();
             $table->string('website')->nullable();
-            $table->unsignedBigInteger('manager_id')->nullable();
             $table->timestamps();
-
-            $table->foreign('manager_id')->references('id')->on('users');
         });
     }
 
