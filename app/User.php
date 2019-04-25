@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Role;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -47,5 +48,25 @@ class User extends Authenticatable
     public function setPasswordAttribute($value)
     {
         $this->attributes['password'] = Hash::make($value);
+    }
+
+    /**
+     * Determine if a user is an administrator.
+     *
+     * @return boolean
+     */
+    public function isAdmin()
+    {
+        return $this->role_id == Role::whereSlug('admin')->first()->id;
+    }
+
+    /**
+     * Determine if a user is an administrator.
+     *
+     * @return boolean
+     */
+    public function isManager()
+    {
+        return $this->role_id == Role::whereSlug('manager')->first()->id;
     }
 }
