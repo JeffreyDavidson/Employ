@@ -39,9 +39,23 @@ class CompanyPolicy
      * ability to update a company.
      *
      * @param  \App\User  $user
+     * @param  \App\Company  $company
      * @return bool
      */
     public function update(User $user, Company $company)
+    {
+        return $user->isAdmin() || $company->managers->contains($user);
+    }
+
+    /**
+     * Checks to see if the user has the
+     * ability to view a company.
+     *
+     * @param  \App\User  $user
+     * @param  \App\Company  $company
+     * @return bool
+     */
+    public function view(User $user, Company $company)
     {
         return $user->isAdmin() || $company->managers->contains($user);
     }

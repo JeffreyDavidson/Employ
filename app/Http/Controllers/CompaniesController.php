@@ -90,4 +90,18 @@ class CompaniesController extends Controller
 
         return redirect()->route('companies.index');
     }
+
+    /**
+     * Show the given company.
+     *
+     * @return \Illuminate\View\View
+     */
+    public function show(Company $company)
+    {
+        $this->authorize('view', $company);
+
+        $managers = $company->managers;
+
+        return view('companies.show', compact('company', 'managers'));
+    }
 }
