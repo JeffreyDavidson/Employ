@@ -81,4 +81,20 @@ class EmployeesController extends Controller
 
         return redirect()->route('companies.employees.index', $company);
     }
+
+    /**
+     * Delete the given employee.
+     *
+     * @param  \App\Company  $company
+     * @param  \App\Employee  $employee
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function destroy(Company $company, Employee $employee)
+    {
+        $this->authorize('delete', $employee);
+
+        $employee->delete();
+
+        return redirect()->route('companies.employees.index', $company);
+    }
 }
