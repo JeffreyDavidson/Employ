@@ -120,6 +120,7 @@ class CompaniesController extends Controller
         $this->authorize('delete', $company);
 
         $company->delete();
+        $company->employees()->delete();
 
         return redirect()->route('companies.index');
     }
