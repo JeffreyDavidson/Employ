@@ -14,6 +14,16 @@ class Employee extends Model
     protected $guarded = [];
 
     /**
+     * Get the company of the employee.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function company()
+    {
+        return $this->belongsTo(Company::class);
+    }
+
+    /**
      * Format the employees's telephone number.
      *
      * @return string|null

@@ -40,6 +40,16 @@ class User extends Authenticatable
     ];
 
     /**
+     * Get the company of the user..
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function company()
+    {
+        return $this->belongsTo(Company::class);
+    }
+
+    /**
      * Hash all users password when created.
      *
      * @param  string  $value
