@@ -59,4 +59,17 @@ class CompanyPolicy
     {
         return $user->isAdmin() || $company->managers->contains($user);
     }
+
+    /**
+     * Checks to see if the user has the
+     * ability to delete a company.
+     *
+     * @param  \App\User  $user
+     * @param  \App\Company  $company
+     * @return bool
+     */
+    public function delete(User $user, Company $company)
+    {
+        return $user->isAdmin();
+    }
 }

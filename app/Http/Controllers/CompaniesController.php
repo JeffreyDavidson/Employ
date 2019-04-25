@@ -104,4 +104,18 @@ class CompaniesController extends Controller
 
         return view('companies.show', compact('company', 'managers'));
     }
+
+    /**
+     * Show the given company.
+     *
+     * @return \Illuminate\View\View
+     */
+    public function destroy(Company $company)
+    {
+        $this->authorize('delete', $company);
+
+        $company->delete();
+
+        return redirect()->route('companies.index');
+    }
 }

@@ -27,4 +27,5 @@ Route::middleware(['middleware' => 'auth'])->group(function () {
     Route::get('/companies/{company}/edit', 'CompaniesController@edit')->name('companies.edit');
     Route::patch('/companies/{company}', 'CompaniesController@update')->name('companies.update');
     Route::get('/companies/{company}', 'CompaniesController@show')->name('companies.show');
+    Route::delete('/companies/{company}', 'CompaniesController@destroy')->name('companies.destroy');
 });
