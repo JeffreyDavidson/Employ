@@ -58,7 +58,7 @@ class CompaniesController extends Controller
     }
 
     /**
-     * Show the form for creating a company.
+     * Show the form for editing a company.
      *
      * @return \Illuminate\View\View
      */
@@ -70,7 +70,7 @@ class CompaniesController extends Controller
     }
 
     /**
-     * Save the company to the database.
+     * Update the given company to the database.
      *
      * @param  \App\Http\Requests\UpdateCompanyRequest  $request
      * @return \Illuminate\Http\RedirectResponse
