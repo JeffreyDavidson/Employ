@@ -26,6 +26,7 @@ class CompaniesController extends Controller
     /**
      * Show the form for creating a company.
      *
+     * @param  \App\Company  $company
      * @return \Illuminate\View\View
      */
     public function create(Company $company)
@@ -60,6 +61,7 @@ class CompaniesController extends Controller
     /**
      * Show the form for editing a company.
      *
+     * @param  \App\Company  $company
      * @return \Illuminate\View\View
      */
     public function edit(Company $company)
@@ -73,6 +75,7 @@ class CompaniesController extends Controller
      * Update the given company to the database.
      *
      * @param  \App\Http\Requests\UpdateCompanyRequest  $request
+     * @param  \App\Company  $company
      * @return \Illuminate\Http\RedirectResponse
      */
     public function update(UpdateCompanyRequest $request, Company $company)
@@ -94,6 +97,7 @@ class CompaniesController extends Controller
     /**
      * Show the given company.
      *
+     * @param  \App\Company  $company
      * @return \Illuminate\View\View
      */
     public function show(Company $company)
@@ -106,9 +110,10 @@ class CompaniesController extends Controller
     }
 
     /**
-     * Show the given company.
+     * Delete the given company.
      *
-     * @return \Illuminate\View\View
+     * @param  \App\Company  $company
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy(Company $company)
     {
