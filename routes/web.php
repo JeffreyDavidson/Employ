@@ -21,11 +21,5 @@ Auth::routes(['register' => false]);
 Route::middleware(['middleware' => 'auth'])->group(function () {
     Route::view('/dashboard', 'dashboard')->name('dashboard');
 
-    Route::get('/companies', 'CompaniesController@index')->name('companies.index');
-    Route::get('/companies/create', 'CompaniesController@create')->name('companies.create');
-    Route::post('/companies', 'CompaniesController@store')->name('companies.store');
-    Route::get('/companies/{company}/edit', 'CompaniesController@edit')->name('companies.edit');
-    Route::patch('/companies/{company}', 'CompaniesController@update')->name('companies.update');
-    Route::get('/companies/{company}', 'CompaniesController@show')->name('companies.show');
-    Route::delete('/companies/{company}', 'CompaniesController@destroy')->name('companies.destroy');
+    Route::resource('companies', 'CompaniesController');
 });
