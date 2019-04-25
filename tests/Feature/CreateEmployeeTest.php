@@ -280,4 +280,22 @@ class CreateEmployeeTest extends TestCase
         $response->assertSessionHasErrors('telephone');
         $this->assertEquals(0, $company->employees->count());
     }
+
+    /** @test */
+    public function an_employee_telephone_must_be_a_ten_digits_long_if_provided()
+    {
+        $company = factory(Company::class)->create();
+        $user = factory(User::class)->states('administrator')->create();
+
+        $response = $this->actingAs($user)
+                        ->from(route('companies.employees.create', $company))
+                        ->post(route('companies.employees.store', $company), $this->validParams([
+                            'telephone' => '1234567',
+                        ]));
+
+        $response->assertStatus(302);
+        $response->assertRedirect(route('companies.employees.create', $company));
+        $response->assertSessionHasErrors('telephone');
+        $this->assertEquals(0, $company->employees->count());
+    }
 }

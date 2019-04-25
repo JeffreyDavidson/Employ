@@ -29,7 +29,7 @@ class StoreEmployeeRequest extends FormRequest
             'first_name' => ['required', 'string'],
             'last_name' => ['required', 'string'],
             'email' => ['nullable', 'string', 'email'],
-            'telephone' => ['nullable', 'string'],
+            'telephone' => ['nullable', 'string', 'size:10'],
         ];
     }
 }

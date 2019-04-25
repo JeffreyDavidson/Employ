@@ -34,4 +34,6 @@
 </div>
 <div class="form-group">
     <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="reset" class="btn btn-secondary">Cancel</button>
+    <a class="btn btn-secondary" href="{{ route('companies.employees.index', $company) }}">Back To Employees</a>
 </div>
