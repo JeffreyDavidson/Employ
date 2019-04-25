@@ -32,4 +32,17 @@ class StoreEmployeeRequest extends FormRequest
             'telephone' => ['nullable', 'string', 'size:10'],
         ];
     }
+
+    /**
+     * Get custom attributes for validator errors.
+     *
+     * @return array
+     */
+    public function attributes()
+    {
+        return [
+            'first_name' => 'first name',
+            'last_name' => 'last name',
+        ];
+    }
 }
