@@ -17,11 +17,11 @@ class EmployeesController extends Controller
     }
 
     /**
-     * Undocumented function
+     * Show the form for creating an employee.
      *
      * @param  \App\Company  $company
      * @param  \App\Employee  $employee
-     * @return void
+     * @return \Illuminate\View\View
      */
     public function create(Company $company, Employee $employee)
     {
