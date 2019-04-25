@@ -22,4 +22,14 @@ class Company extends Model
     {
         return $this->hasMany(User::class);
     }
+
+    /**
+     * Get the employees of the company.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function employees()
+    {
+        return $this->hasMany(Employee::class);
+    }
 }
