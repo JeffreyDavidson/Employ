@@ -5,8 +5,12 @@
 
 <h2>Managers</h2>
 <ul>
-@foreach($managers as $manager)
+@forelse($managers as $manager)
     <li>{{ $manager->name }}</li>
-@endforeach
+@empty
+    <li>No Managers Assigned</li>
+@endforelse
 </ul>
+
+<a class="btn btn-primary" href="{{ route('companies.employees.index', $company) }}">View Company Employees</a>
 @endsection
