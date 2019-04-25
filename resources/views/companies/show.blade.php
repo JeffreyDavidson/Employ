@@ -12,4 +12,5 @@
 @endforelse
 </ul>
 
+<a class="btn btn-primary" href="{{ route('companies.employees.index', $company) }}">View Company Employees</a>
 @endsection
