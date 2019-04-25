@@ -8,6 +8,13 @@ use App\Http\Requests\StoreEmployeeRequest;
 
 class EmployeesController extends Controller
 {
+    public function index(Company $company)
+    {
+        $employees = $company->employees()->paginate(10);
+
+        return view('employees.index', compact('company', 'employees'));
+    }
+
     /**
      * Undocumented function
      *

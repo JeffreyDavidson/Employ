@@ -8,5 +8,8 @@ use Faker\Generator as Faker;
 $factory->define(Company::class, function (Faker $faker) {
     return [
         'name' => $faker->company,
+        'email' => $faker->companyEmail,
+        'logo' => $faker->image($dir = 'public', $width = 100, $height = 100),
+        'website' => $faker->domainName,
     ];
 });
