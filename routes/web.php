@@ -14,3 +14,13 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+// Allow all authentication routes except for register routing.
+Auth::routes(['register' => false]);
+
+Route::middleware(['middleware' => 'auth'])->group(function () {
+    Route::view('/dashboard', 'dashboard')->name('dashboard');
+
+    Route::resource('companies', 'CompaniesController');
+    Route::resource('companies.employees', 'EmployeesController');
+});
