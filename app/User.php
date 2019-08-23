@@ -79,4 +79,9 @@ class User extends Authenticatable
     {
         return $this->role_id == Role::whereSlug('manager')->first()->id;
     }
+
+    public function scopeManagers($query)
+    {
+        return $query->where('role_id', Role::whereSlug('manager')->first()->id);
+    }
 }
